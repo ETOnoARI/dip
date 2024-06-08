@@ -1,0 +1,380 @@
+/* Общие стили - наследуем с Dashboard */
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-color: #f8f9fa; 
+    color: #343a40; 
+    margin: 0;
+}
+
+/* Контейнер страницы */
+.staff-container {
+    max-width: 1200px; 
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Заголовок страницы */
+h1 {
+    color: #212529; 
+    margin-bottom: 20px;
+}
+
+/* Информация о сотруднике */
+.employee-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.employee-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden; 
+    margin-right: 30px;
+}
+
+.employee-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.employee-details {
+    display: flex;
+    flex-direction: column; 
+}
+
+.employee-details h2 {
+    margin-bottom: 10px; 
+}
+
+.employee-details p {
+    margin-bottom: 5px;
+}
+
+.employee-details span {
+    font-weight: bold;
+}
+
+/* Заявки на отпуск */
+.vacation-requests,
+.sick-leaves,
+.tasks,
+.projects { /*  Добавлен  стиль  для  блока  "Участие  в  проектах"  */
+    margin-bottom: 30px;
+}
+
+.vacation-requests h2,
+.sick-leaves h2,
+.tasks h2,
+.projects h2 { /*  Добавлен  стиль  для  заголовка  блока  "Участие  в  проектах"  */
+    margin-bottom: 15px;
+}
+
+/* Таблицы */
+#vacationRequestsTable,
+#sickLeavesTable,
+#tasksTable,
+#projectsTable { /*  Добавлен  стиль  для  таблицы  "Участие  в  проектах"  */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#vacationRequestsTable th, 
+#sickLeavesTable th,
+#tasksTable th, 
+#projectsTable th, /*  Добавлен  стиль  для  заголовков  таблицы  "Участие  в  проектах"  */
+#vacationRequestsTable td, 
+#sickLeavesTable td,
+#tasksTable td,
+#projectsTable td { /*  Добавлен  стиль  для  ячеек  таблицы  "Участие  в  проектах"  */
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#vacationRequestsTable th, 
+#sickLeavesTable th,
+#tasksTable th,
+#projectsTable th { /*  Добавлен  стиль  для  заголовков  таблицы  "Участие  в  проектах"  */
+    background-color: #f5f5f5; 
+    font-weight: 600;
+}
+
+/* Дополнительно для руководителя */
+.manager-controls {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 20px;
+}
+
+.manager-controls h2 {
+    margin-bottom: 10px; 
+}
+
+.manager-controls button {
+    padding: 8px 16px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500; 
+    margin-right: 5px; 
+}
+
+.manager-controls button:hover {
+    background-color: #218838;
+}
+
+/*  Кнопка  "Редактировать  сотрудника"  */
+#editEmployeeButton {
+    background-color: #ffc107; /* Желтый цвет */
+}
+
+#editEmployeeButton:hover {
+    background-color: #e0a800;
+}
+
+/*  Кнопка  "Удалить  сотрудника"  */
+#deleteEmployeeButton {
+    background-color: #dc3545; /* Красный цвет */
+}
+
+#deleteEmployeeButton:hover {
+    background-color: #c82333;
+}
+
+/* Модальные окна */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.modal-content h2 {
+    margin-bottom: 20px; 
+}
+
+.modal-content .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="email"],
+.form-group select,
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.modal-content button[type="button"],
+.modal-content button[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500; 
+    margin-right: 5px; 
+}
+
+.modal-content button[type="submit"] {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.modal-content button[type="button"] {
+    background-color: #dc3545; /* Красный цвет */
+    color: white;
+}
+
+.modal-content button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Стили для боковой панели */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar-header svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Стили для навигации боковой панели */
+.sidebar-nav {
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s; /* Добавляем плавный переход */
+}
+
+.sidebar-nav li:hover {
+    background-color: #f8f9fa; /* Подсветка при наведении */
+}
+
+.sidebar-nav li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-nav a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500; /* Делаем текст более заметным */
+}
+
+.sidebar-nav a:hover {
+    color: #3498db;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .staff-container {
+        width: 100%;
+    }
+
+    .employee-info {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .employee-photo {
+        margin-bottom: 20px; 
+        margin-right: 0;
+    }
+
+    .employee-details {
+        margin-top: 20px;
+    }
+
+    .vacation-requests,
+    .sick-leaves,
+    .tasks,
+    .projects,
+    .manager-controls {
+        margin-bottom: 20px;
+    }
+
+    #vacationRequestsTable,
+    #sickLeavesTable,
+    #tasksTable,
+    #projectsTable {
+        font-size: 14px; 
+    }
+
+    #vacationRequestsTable th, 
+    #sickLeavesTable th,
+    #tasksTable th,
+    #projectsTable th, 
+    #vacationRequestsTable td, 
+    #sickLeavesTable td,
+    #tasksTable td,
+    #projectsTable td {
+        padding: 8px;
+    }
+}

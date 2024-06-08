@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Учет времени</title>
+    <link rel="stylesheet" href="css/TimeTracking.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/TimeTracking.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="time-tracking-container">
+        <h1>Учет рабочего времени</h1>
+        <div class="controls">
+            <div class="date-picker">
+                <label for="dateInput">Дата:</label>
+                <input type="date" id="dateInput" value="2024-08-06">
+            </div>
+            <!--  Блок для управления отображением (только для администратора)  -->
+            <div class="manager-controls" id="managerControls">
+                <h2>Управление учетной записью</h2>
+                <button id="addTimeRecordButton">Добавить запись</button>
+            </div>
+        </div>
+
+        <div class="user-actions" id="userActions">
+            <!--  Кнопка  для  ввода  своих  часов  (только  для  сотрудников)  -->
+            <button id="addMyTimeRecordButton">Добавить свою запись</button>
+        </div>
+
+        <!--  Модальное окно для добавления записи  -->
+        <div class="modal" id="addTimeRecordModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeAddTimeRecordModal()">×</span>
+                <h2>Добавить запись о рабочем времени</h2>
+                <form id="addTimeRecordForm">
+                    <div class="form-group">
+                        <label for="employeeSelect">Сотрудник:</label>
+                        <select id="employeeSelect">
+                            <!--  Список  сотрудников  с  сервера  -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startTimeInput">Время начала:</label>
+                        <input type="time" id="startTimeInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTimeInput">Время окончания:</label>
+                        <input type="time" id="endTimeInput" required>
+                    </div>
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное окно для добавления записи о своем рабочем времени  -->
+        <div class="modal" id="addMyTimeRecordModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeAddMyTimeRecordModal()">×</span>
+                <h2>Добавить свою запись о рабочем времени</h2>
+                <form id="addMyTimeRecordForm">
+                    <div class="form-group">
+                        <label for="myStartTimeInput">Время начала:</label>
+                        <input type="time" id="myStartTimeInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="myEndTimeInput">Время окончания:</label>
+                        <input type="time" id="myEndTimeInput" required>
+                    </div>
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное окно для редактирования записи о рабочем времени  -->
+        <div class="modal" id="editTimeRecordModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeEditTimeRecordModal()">×</span>
+                <h2>Редактировать запись о рабочем времени</h2>
+                <form id="editTimeRecordForm">
+                    <input type="hidden" id="timeRecordId">
+                    <div class="form-group">
+                        <label for="employeeSelect">Сотрудник:</label>
+                        <select id="employeeSelect">
+                            <!--  Список  сотрудников  с  сервера  -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="startTimeInput">Время начала:</label>
+                        <input type="time" id="startTimeInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTimeInput">Время окончания:</label>
+                        <input type="time" id="endTimeInput" required>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <table id="timeRecordsTable">
+            <thead>
+                <tr>
+                    <th>Сотрудник</th>
+                    <th>Время начала</th>
+                    <th>Время окончания</th>
+                    <th>Отработано</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--  Строки  с  данными  о  записях  будут  генерироваться  JavaScript  -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

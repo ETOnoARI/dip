@@ -1,0 +1,476 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Светло-серый фон */
+    color: #343a40; /* Темно-серый текст */
+    margin: 0;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh; /* Занимаем всю высоту экрана */
+    margin: 0 auto; /* Центрируем по горизонтали */
+    padding: 20px;
+    background-color: #f5f5f5; /* Светло-серый фон */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+    border-radius: 10px; /* Скругленные углы */
+    overflow: hidden; /* Скрываем скролл, если контент выходит за пределы */
+}
+
+/* Боковая панель */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.sidebar-nav ul {
+    padding: 0;
+    margin: 20px 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-nav a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: #3498db;
+}
+
+/* Заголовок */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.user-nav {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.company-info {
+    display: flex;
+    align-items: center;
+}
+
+.company-info p {
+    margin: 0;
+}
+
+/* Основное содержимое */
+.main {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 250px);
+    padding: 20px;
+    margin-left: 250px;
+}
+
+/* Разделы */
+.overview-section,
+.tasks-section,
+.stats-section,
+.quick-actions-section {
+    margin-bottom: 40px;
+}
+
+.overview-header,
+.tasks-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.overview-header h2,
+.tasks-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Виджеты */
+.overview-grid,
+.tasks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.widget {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 250px; /*  Настройка  ширины  */
+    min-height: 250px; /*  Настройка  высоты  */
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+.widget-header i {
+    font-size: 24px;
+    color: #3498db;
+    margin-right: 10px;
+}
+
+.widget-header p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.widget-content {
+    padding: 20px;
+}
+
+.widget-content span {
+    font-size: 36px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.tasks-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-right: 15px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    flex: 1 1 50%; /*  Делим  пространство  пополам  */
+}
+
+.task-count {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+.task-label {
+    font-size: 12px;
+    color: #555;
+}
+
+.chart-legend {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.chart-legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.color-dot.yellow {
+    background-color: yellow;
+}
+
+.color-dot.green {
+    background-color: green;
+}
+
+.color-dot.red {
+    background-color: red;
+}
+
+.color-dot.blue {
+    background-color: blue;
+}
+.color-dot.purple {
+    background-color: purple;
+}
+
+.color-dot.orange {
+    background-color: orange;
+}
+
+.calendar-list {
+    list-style: none;
+    padding: 0;
+}
+
+.calendar-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.calendar-item.red {
+    background-color: #f8d7da;
+}
+
+.calendar-item.green {
+    background-color: #d4edda;
+}
+
+.calendar-item.yellow {
+    background-color: #fff3cd;
+}
+
+.calendar-item.blue {
+    background-color: #e0f2f7;
+}
+
+.calendar-item span.date {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Быстрые действия */
+.quick-actions-section {
+    margin-top: 40px;
+}
+
+.actions-grid {
+    display: flex;
+    flex-wrap: wrap; /*  Разрешить  перенос  строк  */
+    justify-content: space-between; 
+    gap: 15px;
+}
+
+.action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #e9ecef;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    color: #343a40;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    flex: 1 1 150px; /*  Настройка  ширины  */
+    min-height: 120px; /*  Увеличение  высоты  */
+}
+
+.action-button:hover {
+    background-color: #ced4da;
+}
+
+.action-button i {
+    font-size: 24px; /*  Увеличение  размера  иконок  */
+    margin-bottom: 8px;
+}
+
+.action-button span {
+    font-size: 14px; /*  Увеличение  размера  текста  */
+}
+
+/*  Статистика  */
+.stats-section {
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-item i {
+    font-size: 36px;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.stat-item span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.stat-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.chart-container {
+    margin-bottom: 20px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.table-item {
+    width: calc(50% - 10px); /*  Половина  ширины  */
+}
+
+.table-item table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-item th,
+.table-item td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table-item th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        left: -250px;
+        transition: left 0.3s ease-in-out;
+        z-index: 10;
+    }
+
+    .sidebar-nav ul {
+        padding: 0;
+        margin: 20px 0;
+        list-style: none;
+    }
+
+    .sidebar-nav li {
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sidebar-nav li:last-child {
+        border-bottom: none;
+    }
+
+    .sidebar-nav a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .sidebar-nav a:hover {
+        color: #3498db;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .user-nav {
+        margin-bottom: 20px;
+    }
+
+    .main {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .overview-grid,
+    .tasks-grid,
+    .actions-grid,
+    .stats-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Стили для скрытия бокового меню */
+.sidebar.hidden {
+    left: -250px;
+}
+
+.content-container.sidebar-open {
+    margin-left: 0;
+}

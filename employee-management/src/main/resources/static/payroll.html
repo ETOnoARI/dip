@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Зарплата</title>
+    <link rel="stylesheet" href="css/payroll.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/payroll.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="payroll-container">
+        <h1>Зарплата</h1>
+
+        <div class="controls">
+            <div class="month-picker">
+                <label for="monthSelect">Месяц:</label>
+                <select id="monthSelect">
+                    <option value="2024-08">Август 2024</option>
+                    <!--  Дополните  список  другими  месяцами  -->
+                </select>
+            </div>
+            <button id="updatePayrollButton" class="button">Обновить</button>
+        </div>
+
+        <div class="payroll-overview">
+            <h2>Обзор</h2>
+            <div class="overview-item">
+                <p>Сумма зарплаты:</p>
+                <span id="totalSalary">150 000 руб.</span>
+            </div>
+            <div class="overview-item" id="departmentStats">
+                <p>Средняя зарплата в отделе:</p>
+                <span id="averageSalary">25 000 руб.</span>
+            </div>
+            <div class="overview-item" id="employeeCountStats">
+                <p>Всего сотрудников:</p>
+                <span id="employeeCount">6 чел.</span>
+            </div>
+        </div>
+
+        <div class="payroll-details" id="payrollDetails">
+            <h2>Детали</h2>
+            <table id="payrollTable">
+                <thead>
+                    <tr>
+                        <th>ФИО</th>
+                        <th>Оклад</th>
+                        <th>Отработано часов</th>
+                        <th>Премии</th>
+                        <th>Удержания</th>
+                        <th>Итого к выплате</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Строки  с  данными  о  зарплате  каждого  сотрудника  будут  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="payroll-details" id="employeePayrollDetails">
+            <h2>Ваша зарплата</h2>
+            <table id="employeePayrollTable">
+                <thead>
+                    <tr>
+                        <th>Оклад</th>
+                        <th>Отработано часов</th>
+                        <th>Премии</th>
+                        <th>Удержания</th>
+                        <th>Итого к выплате</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Строка  с  данными  о  зарплате  сотрудника  будет  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+            <button id="generatePayslipButton">Сформировать расчетный лист</button>
+        </div>
+
+        <!--  Модальное окно для редактирования зарплаты  -->
+        <div class="modal" id="editSalaryModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeEditSalaryModal()">×</span>
+                <h2>Редактировать зарплату</h2>
+                <form id="editSalaryForm">
+                    <input type="hidden" id="employeeId">
+                    <div class="form-group">
+                        <label for="employeeName">ФИО:</label>
+                        <input type="text" id="employeeName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="salaryInput">Оклад:</label>
+                        <input type="number" id="salaryInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="workedHoursInput">Отработано часов:</label>
+                        <input type="number" id="workedHoursInput" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bonusInput">Премии:</label>
+                        <input type="number" id="bonusInput">
+                    </div>
+                    <div class="form-group">
+                        <label for="deductionsInput">Удержания:</label>
+                        <input type="number" id="deductionsInput">
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное окно для вывода расчетного листа  -->
+        <div class="modal" id="payslipModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closePayslipModal()">×</span>
+                <h2>Расчетный лист</h2>
+                <div id="payslipContent">
+                    <!--  Контент  будет  заполняться  JavaScript  -->
+                </div>
+                <button type="button" onclick="closePayslipModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="payroll.js"></script> 
+</body>
+</html>

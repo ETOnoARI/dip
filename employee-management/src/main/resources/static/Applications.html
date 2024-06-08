@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Заявления</title>
+    <link rel="stylesheet" href="css/Applications.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/Applications.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="applications-container">
+        <h1>Заявления</h1>
+
+        <!--  Выбор типа заявления  -->
+        <div class="application-type-controls">
+            <h2>Выберите тип заявления:</h2>
+            <select id="applicationType">
+                <option value="promotion">Заявление на повышение</option>
+                <option value="memo">Служебная записка</option>
+                <option value="resignation">Заявление на увольнение</option>
+            </select>
+        </div>
+
+        <!--  Блок  с  формой  заявления  -->
+        <div id="applicationForm">
+            <!--  Форма  будет  генерироваться  динамически  -->
+        </div>
+
+        <!--  Блок  с  кнопкой  "Отправить"  -->
+        <div class="submit-button" id="submitApplicationButton">
+            <button>Отправить</button>
+        </div>
+
+        <!--  Блок  для  отображения  статуса  заявления  -->
+        <div id="applicationStatus">
+            <!--  Статус  заявления  будет  отображаться  динамически  -->
+        </div>
+
+        <!--  Дополнительно  для  руководителя  -->
+        <div class="manager-controls" id="managerControls">
+            <h2>Управление заявлениями</h2>
+            <!--  Список  заявлений  -->
+            <table id="applicationsTable">
+                <thead>
+                    <tr>
+                        <th>Тип</th>
+                        <th>Сотрудник</th>
+                        <th>Дата создания</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Данные  о  заявлениях  будут  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+        </div>
+
+        <!--  Модальное окно для подтверждения утверждения/отклонения заявления  -->
+        <div class="modal" id="confirmActionModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeConfirmActionModal()">×</span>
+                <h2 id="modalActionTitle"></h2>
+                <p id="modalActionMessage"></p>
+                <input type="hidden" id="applicationId">
+                <button type="button" onclick="approveApplication()">Утвердить</button>
+                <button type="button" onclick="rejectApplication()">Отклонить</button>
+                <button type="button" onclick="closeConfirmActionModal()">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Applications.js"></script> 
+</body>
+</html>

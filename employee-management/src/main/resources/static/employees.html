@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Сотрудники</title>
+    <link rel="stylesheet" href="css/employees.css">
+    <script src="js/employees.js" defer></script> 
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script> 
+    <script src="js/employees.js" defer></script> 
+
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="employees-container">
+        <h1>Сотрудники</h1>
+
+        <div class="controls">
+            <div class="search">
+                <input type="text" id="searchInput" placeholder="Поиск...">
+            </div>
+            <div class="filters">
+                <select id="departmentFilter">
+                    <option value="">Все отделы</option>
+                    <option value="sales">Отдел продаж</option>
+                    <option value="marketing">Отдел маркетинга</option>
+                    <option value="hr">Отдел кадров</option>
+                </select>
+                <select id="positionFilter">
+                    <option value="">Все должности</option>
+                    <option value="manager">Менеджер</option>
+                    <option value="developer">Разработчик</option>
+                    <option value="designer">Дизайнер</option>
+                </select>
+            </div>
+            <button id="addEmployeeButton" class="add-employee-button">Добавить сотрудника</button>
+        </div>
+
+        <table id="employeesTable">
+            <thead>
+                <tr>
+                    <th>Фото</th>
+                    <th>ФИО</th>
+                    <th>Должность</th>
+                    <th>Отдел</th>
+                    <th>Дата приема</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--  Строки  с  данными  о  сотрудниках  будут  генерироваться  JavaScript  -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button id="prevPage">Предыдущая</button>
+            <span id="currentPage">1</span> / <span id="totalPages">1</span>
+            <button id="nextPage">Следующая</button>
+        </div>
+
+        <!--  Модальное окно для добавления сотрудника  -->
+        <div class="modal" id="addEmployeeModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeAddEmployeeModal()">×</span>
+                <h2>Добавить сотрудника</h2>
+                <form id="addEmployeeForm">
+                    <div class="form-group">
+                        <label for="employeeName">ФИО:</label>
+                        <input type="text" id="employeeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePosition">Должность:</label>
+                        <input type="text" id="employeePosition" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeDepartment">Отдел:</label>
+                        <input type="text" id="employeeDepartment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeHireDate">Дата приема:</label>
+                        <input type="date" id="employeeHireDate" required>
+                    </div>
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное окно для редактирования сотрудника  -->
+        <div class="modal" id="editEmployeeModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeEditEmployeeModal()">×</span>
+                <h2>Редактировать сотрудника</h2>
+                <form id="editEmployeeForm">
+                    <input type="hidden" id="employeeId"> 
+                    <div class="form-group">
+                        <label for="employeeName">ФИО:</label>
+                        <input type="text" id="employeeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePosition">Должность:</label>
+                        <input type="text" id="employeePosition" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeDepartment">Отдел:</label>
+                        <input type="text" id="employeeDepartment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeHireDate">Дата приема:</label>
+                        <input type="date" id="employeeHireDate" required>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное окно для удаления сотрудника  -->
+        <div class="modal" id="deleteEmployeeModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeDeleteEmployeeModal()">×</span>
+                <h2>Удалить сотрудника</h2>
+                <p>Вы уверены, что хотите удалить этого сотрудника?</p>
+                <input type="hidden" id="employeeId">
+                <button type="button" onclick="deleteEmployee()">Удалить</button>
+                <button type="button" onclick="closeDeleteEmployeeModal()">Отмена</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно для детальной информации о сотруднике -->
+        <div class="modal" id="employeeDetailsModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeEmployeeDetailsModal()">×</span>
+                <h2>Информация о сотруднике</h2>
+                <div id="employeeDetailsContent">
+                    <!-- Контент будет заполнен JavaScript -->
+                </div>
+                <button type="button" onclick="closeEmployeeDetailsModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Настройки</title>
+    <link rel="stylesheet" href="css/Settings.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/Settings.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="settings-container">
+        <h1>Настройки</h1>
+
+        <div class="settings-section">
+            <h2>Настройки компании</h2>
+            <form id="companySettingsForm">
+                <div class="form-group">
+                    <label for="companyName">Название компании:</label>
+                    <input type="text" id="companyName" value="Название компании" required>
+                </div>
+                <div class="form-group">
+                    <label for="companyEmail">Email компании:</label>
+                    <input type="email" id="companyEmail" value="company@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="companyPhone">Телефон компании:</label>
+                    <input type="tel" id="companyPhone" value="+7 (123) 456-78-90" required>
+                </div>
+                <div class="form-group">
+                    <label for="companyAddress">Адрес компании:</label>
+                    <input type="text" id="companyAddress" value="г. Москва, ул. Ленина, д. 1" required>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2>Настройки уведомлений</h2>
+            <form id="notificationSettingsForm">
+                <div class="form-group">
+                    <label for="vacationNotifications">Уведомления об отпусках:</label>
+                    <input type="checkbox" id="vacationNotifications" checked>
+                </div>
+                <div class="form-group">
+                    <label for="sickLeaveNotifications">Уведомления о больничных:</label>
+                    <input type="checkbox" id="sickLeaveNotifications" checked>
+                </div>
+                <div class="form-group">
+                    <label for="taskNotifications">Уведомления о задачах:</label>
+                    <input type="checkbox" id="taskNotifications" checked>
+                </div>
+                <div class="form-group">
+                    <label for="birthdayNotifications">Уведомления о днях рождения:</label>
+                    <input type="checkbox" id="birthdayNotifications" checked>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2>Настройки интерфейса</h2>
+            <form id="interfaceSettingsForm">
+                <div class="form-group">
+                    <label for="languageSelect">Язык интерфейса:</label>
+                    <select id="languageSelect">
+                        <option value="ru">Русский</option>
+                        <option value="en">Английский</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="themeSelect">Тема оформления:</label>
+                    <select id="themeSelect">
+                        <option value="light">Светлая</option>
+                        <option value="dark">Темная</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h2>Настройки отчетности</h2>
+            <form id="reportSettingsForm">
+                <div class="form-group">
+                    <label for="defaultReportFormat">Формат отчета по умолчанию:</label>
+                    <select id="defaultReportFormat">
+                        <option value="pdf">PDF</option>
+                        <option value="excel">Excel</option>
+                        <option value="csv">CSV</option>
+                    </select>
+                </div>
+            </div>
+
+        <div class="settings-section">
+            <h2>Настройки безопасности</h2>
+            <form id="securitySettingsForm">
+                <div class="form-group">
+                    <label for="passwordComplexity">Сложность пароля:</label>
+                    <select id="passwordComplexity">
+                        <option value="low">Низкая</option>
+                        <option value="medium">Средняя</option>
+                        <option value="high">Высокая</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="twoFactorAuth">Двухфакторная аутентификация:</label>
+                    <input type="checkbox" id="twoFactorAuth">
+                </div>
+            </div>
+
+        <!--  Дополнительные  настройки  (например,  настройки  календаря,  настройки  задач,  настройки  отпусков  и  т.д.)  -->
+        <div class="settings-section">
+            <h2>Дополнительные настройки</h2>
+            <div class="form-group">
+                <label for="calendarSettings">Настройки календаря:</label>
+                <button type="button" onclick="openCalendarSettingsModal()">Изменить</button>
+            </div>
+            <div class="form-group">
+                <label for="taskSettings">Настройки задач:</label>
+                <button type="button" onclick="openTaskSettingsModal()">Изменить</button>
+            </div>
+            <div class="form-group">
+                <label for="vacationSettings">Настройки отпусков:</label>
+                <button type="button" onclick="openVacationSettingsModal()">Изменить</button>
+            </div>
+            <div class="form-group">
+                <label for="sickLeaveSettings">Настройки больничных:</label>
+                <button type="button" onclick="openSickLeaveSettingsModal()">Изменить</button>
+            </div>
+        </div>
+
+        <!--  Модальное  окно  для  настроек  календаря  -->
+        <div class="modal" id="calendarSettingsModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeCalendarSettingsModal()">×</span>
+                <h2>Настройки календаря</h2>
+                <form id="calendarSettingsForm">
+                    <div class="form-group">
+                        <label for="defaultCalendarView">Вид календаря по умолчанию:</label>
+                        <select id="defaultCalendarView">
+                            <option value="dayGridMonth">Месячный</option>
+                            <option value="timeGridWeek">Недельный</option>
+                            <option value="timeGridDay">Дневной</option>
+                        </select>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное  окно  для  настроек  задач  -->
+        <div class="modal" id="taskSettingsModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeTaskSettingsModal()">×</span>
+                <h2>Настройки задач</h2>
+                <form id="taskSettingsForm">
+                    <div class="form-group">
+                        <label for="defaultTaskStatus">Статус задачи по умолчанию:</label>
+                        <select id="defaultTaskStatus">
+                            <option value="pending">Ожидает</option>
+                            <option value="inProgress">В процессе</option>
+                            <option value="completed">Выполнена</option>
+                        </select>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное  окно  для  настроек  отпусков  -->
+        <div class="modal" id="vacationSettingsModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeVacationSettingsModal()">×</span>
+                <h2>Настройки отпусков</h2>
+                <form id="vacationSettingsForm">
+                    <div class="form-group">
+                        <label for="defaultVacationType">Тип отпуска по умолчанию:</label>
+                        <select id="defaultVacationType">
+                            <option value="paid">Оплачиваемый</option>
+                            <option value="unpaid">Неоплачиваемый</option>
+                        </select>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное  окно  для  настроек  больничных  -->
+        <div class="modal" id="sickLeaveSettingsModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeSickLeaveSettingsModal()">×</span>
+                <h2>Настройки больничных</h2>
+                <form id="sickLeaveSettingsForm">
+                    <div class="form-group">
+                        <label for="defaultSickLeaveDays">Количество дней больничного по умолчанию:</label>
+                        <input type="number" id="defaultSickLeaveDays" value="14" min="1">
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="save-button">
+            <button id="saveAllSettingsButton">Сохранить все настройки</button>
+        </div>
+    </div>
+
+    <script src="Settings.js"></script> 
+</body>
+</html>

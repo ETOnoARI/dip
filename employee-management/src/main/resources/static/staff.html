@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Карточка сотрудника</title>
+    <link rel="stylesheet" href="css/staff.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/staff.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="staff-container">
+        <h1>Карточка сотрудника</h1>
+
+        <!--  Блок  с  информацией  о  сотруднике  -->
+        <div class="employee-info">
+            <div class="employee-photo">
+                <img src="src/user.png" alt="Фото сотрудника" id="employeePhoto">
+            </div>
+            <div class="employee-details">
+                <h2 id="employeeName">Иванов Иван Иванович</h2>
+                <p>Должность: <span id="employeePosition">Frontend разработчик</span></p>
+                <p>Отдел: <span id="employeeDepartment">Отдел разработки</span></p>
+                <p>Дата приема: <span id="employeeHireDate">2023-05-15</span></p>
+                <p>Статус: <span id="employeeStatus">Работает</span></p>
+                <p>Телефон: <span id="employeePhone">+7 (123) 456-78-90</span></p>
+                <p>Email: <span id="employeeEmail">ivanov@example.com</span></p>
+                <p>Дата рождения: <span id="employeeBirthDate">1990-01-01</span></p>
+                <p>Адрес: <span id="employeeAddress">г. Москва, ул. Ленина, д. 1</span></p>
+                <p>Оклад: <span id="employeeSalary">60 000 руб.</span></p>
+            </div>
+        </div>
+
+        <!--  Блок  с  заявками  на  отпуск  -->
+        <div class="vacation-requests">
+            <h2>Заявки на отпуск</h2>
+            <table id="vacationRequestsTable">
+                <thead>
+                    <tr>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
+                        <th>Тип отпуска</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Данные  о  заявках  на  отпуск  будут  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+        </div>
+
+        <!--  Блок  с  больничными  -->
+        <div class="sick-leaves">
+            <h2>Больничные</h2>
+            <table id="sickLeavesTable">
+                <thead>
+                    <tr>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Данные  о  больничных  будут  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+        </div>
+
+        <!--  Блок  с  задачами  -->
+        <div class="tasks">
+            <h2>Задачи</h2>
+            <table id="tasksTable">
+                <thead>
+                    <tr>
+                        <th>Название задачи</th>
+                        <th>Срок</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Данные  о  задачах  будут  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+        </div>
+
+        <!--  Блок  с  участием  в  проектах  -->
+        <div class="projects">
+            <h2>Участие в проектах</h2>
+            <table id="projectsTable">
+                <thead>
+                    <tr>
+                        <th>Название проекта</th>
+                        <th>Описание</th>
+                        <th>Роль</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  Данные  о  проектах  будут  генерироваться  JavaScript  -->
+                </tbody>
+            </table>
+        </div>
+
+        <!--  Дополнительно  для  руководителя  -->
+        <div class="manager-controls" id="managerControls">
+            <h2>Управление сотрудником</h2>
+            <button id="editEmployeeButton">Редактировать сотрудника</button>
+            <button id="deleteEmployeeButton">Удалить сотрудника</button>
+        </div>
+
+        <!--  Модальное окно для редактирования сотрудника  -->
+        <div class="modal" id="editEmployeeModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeEditEmployeeModal()">×</span>
+                <h2>Редактировать сотрудника</h2>
+                <form id="editEmployeeForm">
+                    <input type="hidden" id="employeeId">
+                    <div class="form-group">
+                        <label for="employeeName">ФИО:</label>
+                        <input type="text" id="employeeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePosition">Должность:</label>
+                        <input type="text" id="employeePosition" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeDepartment">Отдел:</label>
+                        <input type="text" id="employeeDepartment" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeHireDate">Дата приема:</label>
+                        <input type="date" id="employeeHireDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeePhone">Телефон:</label>
+                        <input type="tel" id="employeePhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeEmail">Email:</label>
+                        <input type="email" id="employeeEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeBirthDate">Дата рождения:</label>
+                        <input type="date" id="employeeBirthDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeAddress">Адрес:</label>
+                        <input type="text" id="employeeAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeSalary">Оклад:</label>
+                        <input type="number" id="employeeSalary" required>
+                    </div>
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!--  Модальное окно для удаления сотрудника  -->
+        <div class="modal" id="deleteEmployeeModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeDeleteEmployeeModal()">×</span>
+                <h2>Удалить сотрудника</h2>
+                <p>Вы уверены, что хотите удалить этого сотрудника?</p>
+                <input type="hidden" id="employeeId">
+                <button type="button" onclick="deleteEmployee()">Удалить</button>
+                <button type="button" onclick="closeDeleteEmployeeModal()">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="staff.js"></script> 
+</body>
+</html>

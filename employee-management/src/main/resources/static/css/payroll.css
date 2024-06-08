@@ -1,0 +1,443 @@
+/* Общие стили - наследуем с Dashboard */
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-color: #f8f9fa; 
+    color: #343a40; 
+    margin: 0;
+}
+
+/* Контейнер страницы */
+.payroll-container {
+    max-width: 1200px; 
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Заголовок страницы */
+h1 {
+    color: #212529; 
+    margin-bottom: 20px;
+}
+
+/* Блок с элементами управления */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Выбор месяца */
+.month-picker label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.month-picker select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white; 
+    appearance: none; 
+    -webkit-appearance: none; 
+}
+
+/* Кнопка обновления */
+.button {
+    padding: 8px 16px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500; 
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+/* Обзор */
+.payroll-overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.overview-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-right: 20px; /* Добавляем отступ между блоками */
+}
+
+.overview-item p {
+    margin-bottom: 5px;
+}
+
+.overview-item span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Детали */
+.payroll-details {
+    margin-bottom: 20px;
+}
+
+/* Таблица */
+#payrollTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#payrollTable th, 
+#payrollTable td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#payrollTable th {
+    background-color: #f5f5f5; 
+    font-weight: 600;
+}
+
+/* Кнопки действий в таблице */
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.action-button {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-right: 5px;
+    background-color: #e9ecef; 
+    border: none;
+    border-radius: 4px;
+    color: #343a40;
+    text-decoration: none;
+    font-size: 14px; 
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #ced4da; 
+}
+
+/* Кнопки "Редактировать" и "Удалить" */
+.edit-button {
+    background-color: #ffc107; 
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+/*  Стили  для  "Ваша  зарплата"  */
+.payroll-details {
+    margin-bottom: 20px;
+}
+
+#employeePayrollDetails {
+    margin-bottom: 20px;
+}
+
+/*  Таблица  для  "Ваша  зарплата"  */
+#employeePayrollTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#employeePayrollTable th, 
+#employeePayrollTable td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#employeePayrollTable th {
+    background-color: #f5f5f5; 
+    font-weight: 600;
+}
+
+#generatePayslipButton {
+    padding: 8px 16px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500; 
+}
+
+#generatePayslipButton:hover {
+    background-color: #218838;
+}
+
+/* Модальное окно */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.modal-content h2 {
+    margin-bottom: 20px; 
+}
+
+.modal-content .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.modal-content button[type="button"],
+.modal-content button[type="submit"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500; 
+    margin-right: 5px; /* Добавляем отступ справа для кнопок */
+}
+
+.modal-content button[type="submit"] {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.modal-content button[type="button"] {
+    background-color: #dc3545; /* Красный цвет */
+    color: white;
+}
+
+.modal-content button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Стили для боковой панели */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar-header svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Стили для навигации боковой панели */
+.sidebar-nav {
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s; /* Добавляем плавный переход */
+}
+
+.sidebar-nav li:hover {
+    background-color: #f8f9fa; /* Подсветка при наведении */
+}
+
+.sidebar-nav li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-nav a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500; /* Делаем текст более заметным */
+}
+
+.sidebar-nav a:hover {
+    color: #3498db;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .payroll-container {
+        width: 100%;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .month-picker select,
+    .button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .payroll-overview,
+    .payroll-details,
+    #employeePayrollDetails {
+        display: block; /* Отображаем обзор и детали по отдельности */
+        margin-bottom: 20px;
+    }
+
+    #payrollTable {
+        font-size: 14px; /* Уменьшаем размер шрифта */
+    }
+
+    #payrollTable th, 
+    #payrollTable td {
+        padding: 8px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .action-button {
+        margin-bottom: 5px;
+        margin-right: 0;
+    }
+}
+
+/*  Стили  для  расчетного  листа  */
+#payslipModal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#payslipModal th, 
+#payslipModal td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#payslipModal th {
+    background-color: #f5f5f5; 
+    font-weight: 600;
+}
+
+#payslipModal .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#payslipModal .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fff;
+}

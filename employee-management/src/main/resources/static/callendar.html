@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Календарь</title>
+    <link rel="stylesheet" href="css/callendar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/callendar.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+    <!-- Стили для FullCalendar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+    <!-- Скрипты для FullCalendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/ru.js"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="leaves-container">
+        <h1>Календарь</h1>
+
+        <div class="employees-list">
+            <h2>Список сотрудников</h2>
+            <select id="employeesStatus">
+                <option value="ivanov">Иванов Иван Иванович</option>
+                <option value="petrov">Петров Петр Петрович</option>
+                <option value="sidorov">Сидоров Сергей Сергеевич</option>
+                <!--  Дополните  список  другими  сотрудниками  -->
+            </select>
+        </div>
+
+        <div class="forms-container">
+            <div class="form-wrapper" id="vacationFormWrapper">
+                <h2>Подать заявку на отпуск</h2>
+                <form id="vacationRequestForm">
+                    <div class="form-group">
+                        <label for="vacationType">Тип отпуска:</label>
+                        <select id="vacationType">
+                            <option value="paid">Оплачиваемый</option>
+                            <option value="unpaid">Неоплачиваемый</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vacationStartDate">Дата начала:</label>
+                        <input type="date" id="vacationStartDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vacationEndDate">Дата окончания:</label>
+                        <input type="date" id="vacationEndDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vacationEmployee">Сотрудник:</label>
+                        <select id="vacationEmployee">
+                            <!--  Список  сотрудников  с  сервера  -->
+                        </select>
+                    </div>
+                    <button type="submit">Отправить заявку</button>
+                </form>
+            </div>
+            <div class="form-wrapper" id="sickLeaveFormWrapper">
+                <h2>Зарегистрировать больничный</h2>
+                <form id="sickLeaveForm">
+                    <div class="form-group">
+                        <label for="sickLeaveStartDate">Дата начала:</label>
+                        <input type="date" id="sickLeaveStartDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sickLeaveEndDate">Дата окончания:</label>
+                        <input type="date" id="sickLeaveEndDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sickLeaveFile">Загрузить больничный лист:</label>
+                        <input type="file" id="sickLeaveFile">
+                    </div>
+                    <div class="form-group">
+                        <label for="sickLeaveEmployee">Сотрудник:</label>
+                        <select id="sickLeaveEmployee">
+                            <!--  Список  сотрудников  с  сервера  -->
+                        </select>
+                    </div>
+                    <button type="submit">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="calendar-container">
+            <div id="calendar"></div>
+        </div>
+
+        <!--  Дополнительно  для  руководителя  -->
+        <div class="manager-controls" id="managerControls">
+            <h2>Управление календарем</h2>
+            <button id="addEventButton">
+                <i class="fas fa-plus-circle"></i>
+            </button>
+        </div>
+
+        <!--  Модальное окно для добавления события  -->
+        <div class="modal" id="addEventModal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeAddEventModal()">×</span>
+                <h2>Добавление события</h2>
+                <form id="addEventForm" class="form"> 
+                    <div class="form-group">
+                        <label for="eventName">Название события:</label>
+                        <input type="text" id="eventName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventStartDate">Дата начала:</label>
+                        <input type="date" id="eventStartDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventEndDate">Дата окончания:</label>
+                        <input type="date" id="eventEndDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventColor">Цвет:</label>
+                        <select id="eventColor">
+                            <option value="red">Красный</option>
+                            <option value="green">Зеленый</option>
+                            <option value="yellow">Желтый</option>
+                            <option value="blue">Синий</option>
+                        </select>
+                    </div>
+                    <button type="submit">Добавить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="callendar.js"></script> 
+</body>
+</html>

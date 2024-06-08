@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Главная</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/dashboard.js" defer></script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="dashboard-container">
+
+        <main class="main">
+            <section class="overview-section">
+                <div class="overview-header">
+                    <h2>Обзор</h2>
+                </div>
+                <div class="overview-grid">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-users"></i>
+                            <p>Сотрудники</p>
+                        </div>
+                        <div class="widget-content">
+                            <span id="employeeCount">32</span>
+                            <p>чел.</p>
+                            <p>Средний возраст: 35 лет</p>
+                            <p>Женщин: 18 чел.</p>
+                            <p>Мужчин: 14 чел.</p>
+                            <button class="button">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-calendar-alt"></i>
+                            <p>Отсутствия</p>
+                        </div>
+                        <div class="widget-content">
+                            <span id="absenceCount">7</span>
+                            <p>дней</p>
+                            <p>Отпуск: 5 дней</p>
+                            <p>Больничный: 2 дня</p>
+                            <p>Неоплачиваемый отпуск: 0 дней</p>
+                            <button class="button">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-file-alt"></i>
+                            <p>Я редактирую</p>
+                        </div>
+                        <div class="widget-content">
+                            <ul>
+                                <li>Договор №123 (Иванов)</li>
+                                <li>ОРД №456 (Петров)</li>
+                                <li>Приказ №789 (Сидоров)</li>
+                                <li>Распоряжение №1011 (Кузнецов)</li>
+                                <li>Справка №12345 (Смирнова)</li>
+                            </ul>
+                            <button class="button">Подробнее</button>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-chart-pie"></i>
+                            <p>Статистика</p>
+                        </div>
+                        <div class="widget-content">
+                            <canvas id="chart1"></canvas>
+                            <ul class="chart-legend">
+                                <li><span class="color-dot yellow"></span> ОРД</li>
+                                <li><span class="color-dot green"></span> Приказы</li>
+                                <li><span class="color-dot red"></span> Распоряжения</li>
+                                <li><span class="color-dot blue"></span> Договоры</li>
+                                <li><span class="color-dot purple"></span> Справки</li>
+                                <li><span class="color-dot orange"></span> Заявления</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tasks-section">
+                <div class="tasks-header">
+                    <h2>Мои задачи</h2>
+                </div>
+                <div class="tasks-grid">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-list-alt"></i>
+                            <p>Задачи мне</p>
+                        </div>
+                        <div class="widget-content">
+                            <div class="tasks-container">
+                                <div class="task-item">
+                                    <span class="task-count">11</span> 
+                                    <span class="task-label">Новые</span> 
+                                </div>
+                                <div class="task-item">
+                                    <span class="task-count">8</span> 
+                                    <span class="task-label">Просроченные</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-list-alt"></i>
+                            <p>Задачи от меня</p>
+                        </div>
+                        <div class="widget-content">
+                            <div class="tasks-container">
+                                <div class="task-item">
+                                    <span class="task-count">3</span> 
+                                    <span class="task-label">Новые</span> 
+                                </div>
+                                <div class="task-item">
+                                    <span class="task-count">0</span> 
+                                    <span class="task-label">Просроченные</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-calendar-alt"></i>
+                            <p>Календарь</p>
+                        </div>
+                        <div class="widget-content">
+                            <ul class="calendar-list">
+                                <li class="calendar-item red">Собрание по проекту "Аврора" <span class="date">06.08</span></li>
+                                <li class="calendar-item green">Дедлайн отчета по маркетингу <span class="date">12.08</span></li>
+                                <li class="calendar-item yellow">День рождения коллеги <span class="date">15.08</span></li>
+                                <li class="calendar-item blue">Отчет по продажам <span class="date">20.08</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon fa fa-lock"></i>
+                            <p>Контроль</p>
+                        </div>
+                        <div class="widget-content">
+                            <ul>
+                                <li>Проверить отчет по маркетингу (Сидоров)</li>
+                                <li>Подтвердить заявку на отпуск (Петров)</li>
+                                <li>Одобрить договор №123 (Иванов)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--  Дополнительно  для  руководителя  -->
+            <section class="stats-section" id="statsSection">
+                <h2>Статистика</h2>
+
+                <!--  Счетчики  -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="icon fa fa-file-alt"></i>
+                        <span id="documentCount">50</span>
+                        <p>Документов</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="icon fa fa-tasks"></i>
+                        <span id="taskCount">18</span>
+                        <p>Задач</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="icon fa fa-users"></i>
+                        <span id="employeeCount">32</span>
+                        <p>Сотрудников</p>
+                    </div>
+                </div>
+
+                <!--  График  -->
+                <div class="chart-container">
+                    <canvas id="chart2"></canvas>
+                </div>
+
+                <!--  Таблицы  -->
+                <div class="table-container">
+                    <div class="table-item">
+                        <h3>Активные отпуска/больничные</h3>
+                        <table id="leavesTable">
+                            <thead>
+                                <tr>
+                                    <th>Сотрудник</th>
+                                    <th>Тип</th>
+                                    <th>Начало</th>
+                                    <th>Конец</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Иванов Иван Иванович</td>
+                                    <td>Отпуск</td>
+                                    <td>2024-08-05</td>
+                                    <td>2024-08-12</td>
+                                </tr>
+                                <tr>
+                                    <td>Петрова Анна Сергеевна</td>
+                                    <td>Больничный</td>
+                                    <td>2024-08-10</td>
+                                    <td>2024-08-15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-item">
+                        <h3>Новые задачи</h3>
+                        <table id="newTasksTable">
+                            <thead>
+                                <tr>
+                                    <th>Задача</th>
+                                    <th>Исполнитель</th>
+                                    <th>Срок</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Подготовка отчета по маркетингу</td>
+                                    <td>Сидоров Сергей Петрович</td>
+                                    <td>2024-08-20</td>
+                                </tr>
+                                <tr>
+                                    <td>Проверка документации по проекту "Аврора"</td>
+                                    <td>Иванов Иван Иванович</td>
+                                    <td>2024-08-15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section class="quick-actions-section">
+                <h2>Быстрые действия</h2>
+                <div class="actions-grid">
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-plus-circle"></i>
+                        <span>Добавить сотрудника</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-clock"></i>
+                        <span>Отметить приход/уход</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-file-alt"></i>
+                        <span>Создать отчет</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-calendar-alt"></i>
+                        <span>Добавить событие в календарь</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-user-plus"></i>
+                        <span>Создать заявку на отпуск</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-file-invoice-dollar"></i>
+                        <span>Провести расчет зарплаты</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-tasks"></i>
+                        <span>Просмотреть задачи</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-user-cog"></i>
+                        <span>Просмотреть сотрудников</span>
+                    </a>
+                    <a href="#" class="action-button">
+                        <i class="icon fa fa-envelope"></i>
+                        <span>Отправить сообщение</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Учет персонала</h2>
+                <button id="closeSidebarButton">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html">Вход</a></li>
+                    <li><a href="dashboard.html">Показатели</a></li>
+                    <li><a href="callendar.html">Календарь</a></li>
+                    <li><a href="Applications.html">Заявления</a></li>
+                    <li><a href="employees.html">Сотрудники</a></li>
+                    <li><a href="TimeTracking.html">Учет времени</a></li>
+                    <li><a href="payroll.html">Зарплата</a></li>
+                    <li><a href="Reports.html">Отчеты</a></li>
+                    <li><a href="Settings.html">Настройки</a></li>
+                    <li><a href="staff.html">Карточка сотрудника</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    

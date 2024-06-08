@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учет персонала - Отчеты</title>
+    <link rel="stylesheet" href="css/Reports.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <script src="js/Reports.js" defer></script> 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Учет персонала</h1>
+        </div>
+        <nav class="user-nav">
+            <div class="user-profile">
+                <img src="src/user.png" alt="Аватар пользователя">
+                <span id="userName">Имя Пользователя</span>
+            </div>
+            <div class="company-info">
+                <p><span id="companyName">Название компании</span></p>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Учет персонала</h2>
+            <button id="closeSidebarButton">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html">Вход</a></li>
+                <li><a href="dashboard.html">Показатели</a></li>
+                <li><a href="callendar.html">Календарь</a></li>
+                <li><a href="Applications.html">Заявления</a></li>
+                <li><a href="employees.html">Сотрудники</a></li>
+                <li><a href="TimeTracking.html">Учет времени</a></li>
+                <li><a href="payroll.html">Зарплата</a></li>
+                <li><a href="Reports.html">Отчеты</a></li>
+                <li><a href="Settings.html">Настройки</a></li>
+                <li><a href="staff.html">Карточка сотрудника</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="reports-container">
+        <h1>Отчеты</h1>
+
+        <div class="report-controls">
+            <h2>Выберите тип отчета:</h2>
+            <select id="reportType">
+                <option value="employees">Отчет по сотрудникам</option>
+                <option value="vacations">Отчет по отпускам</option>
+                <option value="sickLeaves">Отчет по больничным</option>
+                <option value="payroll">Отчет по зарплате</option>
+                <option value="tasks">Отчет по задачам</option>
+                <option value="documents">Отчет по документам</option>
+            </select>
+        </div>
+
+        <!--  Блок  с  фильтрами  -->
+        <div class="filters" id="reportFilters">
+            <!--  Фильтры  будут  добавляться  динамически  -->
+        </div>
+
+        <!--  Блок  с  кнопкой  генерации  отчета  -->
+        <div class="generate-button" id="generateReportButton">
+            <button>Сгенерировать отчет</button>
+        </div>
+
+        <!--  Блок  для  отображения  отчета  -->
+        <div id="reportContent">
+            <!--  Контент  отчета  будет  генерироваться  JavaScript  -->
+        </div>
+    </div>
+
+    <script src="Reports.js"></script> 
+</body>
+</html>
