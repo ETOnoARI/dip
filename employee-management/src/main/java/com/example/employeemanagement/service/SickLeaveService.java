@@ -13,6 +13,6 @@ public interface SickLeaveService {
     SickLeave getSickLeaveById(Integer id);
     List<SickLeave> getAllSickLeaves();
     void deleteSickLeave(Integer id);
-    SickLeave updateSickLeave(SickLeave sickLeave);
+    SickLeave updateSickLeave(Long id, SickLeave sickLeave);
     Page<SickLeave> getAllSickLeaves(Pageable pageable);
 }

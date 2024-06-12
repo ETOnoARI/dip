@@ -59,10 +59,36 @@ body {
 /* Заголовок */
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
+
+.widget-content li{
+    margin: 8px;
+}
+
+/* Стили для кнопки "Подробнее" */
+.detail-button {
+    background-color: #28a745; /* Зеленый цвет */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    border-radius: 5px; /* Сглаженные углы */
+    padding: 10px 20px; /* Внутренние отступы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.detail-button:hover {
+    background-color: #218838; /* Темнее зеленый при наведении */
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+.detail-button:active {
+    background-color: #1e7e34; /* Еще темнее при нажатии */
+    transform: scale(0.98); /* Легкое уменьшение */
+}
+
 
 .logo {
     display: flex;
@@ -102,6 +128,57 @@ body {
 .company-info p {
     margin: 0;
 }
+
+.quick-actions-section {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .quick-actions-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #343a40;
+  }
+  
+  .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .quick-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .quick-action i.icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .quick-action:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .quick-action:active {
+    background-color: #004085;
+    transform: scale(1);
+  }
+  
 
 /* Основное содержимое */
 .main {
@@ -175,6 +252,8 @@ body {
 
 .widget-content {
     padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .widget-content span {
@@ -311,12 +390,13 @@ body {
     background-color: #e9ecef;
     border: none;
     border-radius: 6px;
+    font-size: 12px;
     text-align: center;
     color: #343a40;
     text-decoration: none;
     transition: background-color 0.3s;
-    flex: 1 1 150px; /*  Настройка  ширины  */
-    min-height: 120px; /*  Увеличение  высоты  */
+    flex: 1 1 120px; /*  Настройка  ширины  */
+    min-height: 100px; /*  Увеличение  высоты  */
 }
 
 .action-button:hover {
@@ -329,7 +409,7 @@ body {
 }
 
 .action-button span {
-    font-size: 14px; /*  Увеличение  размера  текста  */
+    font-size: 17px; /*  Увеличение  размера  текста  */
 }
 
 /*  Статистика  */
@@ -397,6 +477,8 @@ body {
 .table-item th {
     background-color: #f5f5f5;
     font-weight: 600;
+    font-size: 22px;
+    font-size: 20px;
 }
 
 /* Адаптивные стили */

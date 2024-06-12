@@ -73,7 +73,7 @@ public class SickLeaveServiceImpl implements SickLeaveService {
 
     @Override
     @Transactional
-    public SickLeave updateSickLeave(SickLeave sickLeave) {
+    public SickLeave updateSickLeave(Long id, SickLeave sickLeave) {
         // Проверки перед обновлением:
         // 1. Проверка существования записи
         Optional<SickLeave> existingSickLeave = sickLeaveRepository.findById(sickLeave.getId());

@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     //  Проверяем  роль  пользователя  (в  реальном  приложении  вы  будете  использовать  localStorage  или  sessionStorage)
-    const isManager = false; //  Изменить  на  false  для  обычного  пользователя
+    const isManager = true  ; //  Изменить  на  false  для  обычного  пользователя
 
     //  Отображение  данных  в  таблице
     function displayTimeRecords(date) {

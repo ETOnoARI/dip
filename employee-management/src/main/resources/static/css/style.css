@@ -8,7 +8,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 30px;
 }
@@ -28,6 +28,7 @@ header {
 .user-nav {
     display: flex;
     align-items: center;
+    margin: 15px;
 }
 
 .user-profile {
@@ -157,24 +158,58 @@ header {
 }
 
 .action-button {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    padding: 15px 20px;
-    background-color: #e9ecef;
+    padding: 10px 15px; /* Уменьшение размера */
+    background-color: #76818d; /* Зеленый цвет фона */
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     text-align: center;
-    color: #343a40;
+    color: #fff; /* Белый цвет текста */
     text-decoration: none;
-    transition: background-color 0.3s;
-    flex: 1 1 150px; /*  Настройка  ширины  */
-    min-height: 100px; /*  Настройка  высоты  */
-}
-
-.action-button:hover {
-    background-color: #ced4da;
-}
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* Курсор в виде руки */
+    font-size: 14px; /* Уменьшенный размер шрифта */
+    margin: 5px; /* Небольшой отступ между кнопками */
+  }
+  
+  .action-button:hover {
+    background-color: #494d4a; /* Темно-зеленый цвет при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+  }
+  
+  .action-button:active {
+    background-color: #1e7e34; /* Более темный зеленый цвет при нажатии */
+    transform: scale(1); /* Возвращение к исходному размеру при нажатии */
+  }
+  
+  /* Дополнительные стили для кнопок различных действий */
+  .details-button {
+    background-color: #17a2b8 !important; /* Голубой цвет для кнопки "Подробнее" */
+  }
+  
+  .details-button:hover {
+    background-color: #138496;
+  }
+  
+  .edit-button {
+    background-color: #ffc107; /* Желтый цвет для кнопки "Редактировать" */
+    color: #343a40; /* Темный цвет текста для контраста */
+  }
+  
+  .edit-button:hover {
+    background-color: #e0a800;
+  }
+  
+  .delete-button {
+    background-color: #dc3545; /* Красный цвет для кнопки "Удалить" */
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
 
 .action-button i {
     font-size: 20px;

@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,7 +68,7 @@ public class TimeRecordServiceImpl implements TimeRecordService {
 
     @Override
     @Transactional
-    public TimeRecord updateTimeRecord(TimeRecord timeRecord) {
+    public TimeRecord updateTimeRecord(Long id, TimeRecord timeRecord) {
         //  Проверки  перед  обновлением:
         //  1.  Проверка  существования  записи
         Optional<TimeRecord> existingTimeRecord = timeRecordRepository.findById(timeRecord.getId());

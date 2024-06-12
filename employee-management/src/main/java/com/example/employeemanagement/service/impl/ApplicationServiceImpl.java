@@ -1,7 +1,6 @@
 package com.example.employeemanagement.service.impl;
 
 import com.example.employeemanagement.exception.ApplicationNotFoundException;
-import com.example.employeemanagement.exception.EmployeeNotFoundException;
 import com.example.employeemanagement.model.Application;
 import com.example.employeemanagement.model.Employee;
 import com.example.employeemanagement.repository.ApplicationRepository;

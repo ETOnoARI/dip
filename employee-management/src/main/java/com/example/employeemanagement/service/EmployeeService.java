@@ -7,14 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface EmployeeService {
     Employee createEmployee(Employee employee);
     Employee getEmployeeById(Integer id);
     List<Employee> getAllEmployees();
     void deleteEmployee(Integer id);
-    Employee updateEmployee(Employee employee);
+    Employee updateEmployee(Long id, Employee employee);
     Page<Employee> getAllEmployees(Pageable pageable);
     List<Employee> findByNameContaining(String name);
 }

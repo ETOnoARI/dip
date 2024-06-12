@@ -12,6 +12,6 @@ public interface TimeRecordService {
     TimeRecord getTimeRecordById(Integer id);
     List<TimeRecord> getAllTimeRecords();
     void deleteTimeRecord(Integer id);
-    TimeRecord updateTimeRecord(TimeRecord timeRecord);
+    TimeRecord updateTimeRecord(Long id, TimeRecord timeRecord);
     Page<TimeRecord> getAllTimeRecords(Pageable pageable);
 }

@@ -115,7 +115,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public Employee updateEmployee(Employee employee) {
+    public Employee updateEmployee(Long id, Employee employee) {
         // Проверки перед обновлением:
         // 1. Проверка существования сотрудника
         Optional<Employee> existingEmployee = employeeRepository.findById(employee.getId());

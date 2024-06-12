@@ -12,6 +12,6 @@ public interface VacationService {
     Vacation getVacationById(Integer id);
     List<Vacation> getAllVacations();
     void deleteVacation(Integer id);
-    Vacation updateVacation(Vacation vacation);
+    Vacation updateVacation(Long id, Vacation vacation);
     Page<Vacation> getAllVacations(Pageable pageable);
 }

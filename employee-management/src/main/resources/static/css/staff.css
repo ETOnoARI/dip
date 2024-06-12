@@ -25,7 +25,7 @@ h1 {
 /* Информация о сотруднике */
 .employee-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 30px;
 }

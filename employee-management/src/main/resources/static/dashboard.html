@@ -14,15 +14,15 @@
 <body>
     <header class="header">
         <div class="logo">
-            <h1>Учет персонала</h1>
+            <img src="src/logo.png" style="max-width: 50px; border-radius: 30px; margin-right: 10px;">
+            <div class="company-info">
+                <h2><span id="companyName">Equilibrium Innovations</span></h2>
+            </div>
         </div>
         <nav class="user-nav">
             <div class="user-profile">
                 <img src="src/user.png" alt="Аватар пользователя">
-                <span id="userName">Имя Пользователя</span>
-            </div>
-            <div class="company-info">
-                <p><span id="companyName">Название компании</span></p>
+                <h4><span id="userName">Admin</span></h4>
             </div>
         </nav>
     </header>
@@ -45,7 +45,7 @@
                             <p>Средний возраст: 35 лет</p>
                             <p>Женщин: 18 чел.</p>
                             <p>Мужчин: 14 чел.</p>
-                            <button class="button">Подробнее</button>
+                            <button class="button detail-button">Подробнее</button>
                         </div>
                     </div>
                     <div class="widget">
@@ -59,7 +59,7 @@
                             <p>Отпуск: 5 дней</p>
                             <p>Больничный: 2 дня</p>
                             <p>Неоплачиваемый отпуск: 0 дней</p>
-                            <button class="button">Подробнее</button>
+                            <button class="button detail-button">Подробнее</button>
                         </div>
                     </div>
                     <div class="widget">
@@ -75,7 +75,7 @@
                                 <li>Распоряжение №1011 (Кузнецов)</li>
                                 <li>Справка №12345 (Смирнова)</li>
                             </ul>
-                            <button class="button">Подробнее</button>
+                            <button class="button detail-button">Подробнее</button>
                         </div>
                     </div>
                     <div class="widget">
@@ -173,34 +173,34 @@
             <section class="stats-section" id="statsSection">
                 <h2>Статистика</h2>
 
-                <!--  Счетчики  -->
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <i class="icon fa fa-file-alt"></i>
-                        <span id="documentCount">50</span>
-                        <p>Документов</p>
-                    </div>
-                    <div class="stat-item">
-                        <i class="icon fa fa-tasks"></i>
-                        <span id="taskCount">18</span>
-                        <p>Задач</p>
-                    </div>
-                    <div class="stat-item">
-                        <i class="icon fa fa-users"></i>
-                        <span id="employeeCount">32</span>
-                        <p>Сотрудников</p>
-                    </div>
-                </div>
+                <!-- Счетчики -->
+<div class="stats-grid">
+    <div class="stat-item">
+        <i class="icon fa fa-file-alt"></i>
+        <span id="documentCount">50</span>
+        <p>Документов</p>
+    </div>
+    <div class="stat-item">
+        <i class="icon fa fa-tasks"></i>
+        <span id="taskCount">18</span>
+        <p>Задач</p>
+    </div>
+    <div class="stat-item">
+        <i class="icon fa fa-users"></i>
+        <span id="employeeCount">54</span>
+        <p>Сотрудников</p>
+    </div>
+</div>
 
-                <!--  График  -->
-                <div class="chart-container">
-                    <canvas id="chart2"></canvas>
-                </div>
+<!-- График -->
+<div class="chart-container">
+    <canvas id="chart2" height="100vh" style="background-color: rgb(255, 255, 255); padding: 10px; border-radius: 10px;"></canvas>
+</div>
 
                 <!--  Таблицы  -->
                 <div class="table-container">
                     <div class="table-item">
-                        <h3>Активные отпуска/больничные</h3>
+                        <h2>Активные отпуска/больничные</h2>
                         <table id="leavesTable">
                             <thead>
                                 <tr>
@@ -255,44 +255,45 @@
             <section class="quick-actions-section">
                 <h2>Быстрые действия</h2>
                 <div class="actions-grid">
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-plus-circle"></i>
-                        <span>Добавить сотрудника</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-clock"></i>
-                        <span>Отметить приход/уход</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-file-alt"></i>
-                        <span>Создать отчет</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-calendar-alt"></i>
-                        <span>Добавить событие в календарь</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-user-plus"></i>
-                        <span>Создать заявку на отпуск</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-file-invoice-dollar"></i>
-                        <span>Провести расчет зарплаты</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-tasks"></i>
-                        <span>Просмотреть задачи</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-user-cog"></i>
-                        <span>Просмотреть сотрудников</span>
-                    </a>
-                    <a href="#" class="action-button">
-                        <i class="icon fa fa-envelope"></i>
-                        <span>Отправить сообщение</span>
-                    </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-plus-circle"></i>
+                    <span>Добавить сотрудника</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-clock"></i>
+                    <span>Отметить приход/уход</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-file-alt"></i>
+                    <span>Создать отчет</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-calendar-alt"></i>
+                    <span>Добавить событие в календарь</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-user-plus"></i>
+                    <span>Создать заявку на отпуск</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-file-invoice-dollar"></i>
+                    <span>Провести расчет зарплаты</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-tasks"></i>
+                    <span>Просмотреть задачи</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-user-cog"></i>
+                    <span>Просмотреть сотрудников</span>
+                  </a>
+                  <a href="#" class="action-button quick-action">
+                    <i class="icon fa fa-envelope"></i>
+                    <span>Отправить сообщение</span>
+                  </a>
                 </div>
-            </section>
+              </section>
+              
         </main>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -306,7 +307,6 @@
             </div>
             <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="index.html">Вход</a></li>
                     <li><a href="dashboard.html">Показатели</a></li>
                     <li><a href="callendar.html">Календарь</a></li>
                     <li><a href="Applications.html">Заявления</a></li>

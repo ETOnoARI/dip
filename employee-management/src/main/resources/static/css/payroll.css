@@ -25,7 +25,7 @@ h1 {
 /* Блок с элементами управления */
 .controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -42,6 +42,8 @@ h1 {
     border: 1px solid #ced4da;
     border-radius: 4px;
     font-size: 16px;
+    margin-right: 20px;
+    width: 15vw;
     background-color: white; 
     appearance: none; 
     -webkit-appearance: none; 

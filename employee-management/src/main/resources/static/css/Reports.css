@@ -26,8 +26,9 @@ h1 {
 .report-controls {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 20px;
+    flex-direction: column;
 }
 
 .report-controls h2 {

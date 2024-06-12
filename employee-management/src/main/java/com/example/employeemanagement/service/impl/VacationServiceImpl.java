@@ -3,7 +3,6 @@
 package com.example.employeemanagement.service.impl;
 
 import com.example.employeemanagement.exception.VacationNotFoundException;
-import com.example.employeemanagement.model.Employee;
 import com.example.employeemanagement.model.Vacation;
 import com.example.employeemanagement.repository.VacationRepository;
 import com.example.employeemanagement.service.VacationService;
@@ -80,7 +79,7 @@ public class VacationServiceImpl implements VacationService {
 
     @Override
     @Transactional
-    public Vacation updateVacation(Vacation vacation) {
+    public Vacation updateVacation(Long id, Vacation vacation) {
         //  Проверки  перед  обновлением:
         //  1.  Проверка  существования  записи
         Optional<Vacation> existingVacation = vacationRepository.findById(vacation.getId());
